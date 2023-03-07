@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript">
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+
+  <title></title>
+  <link rel="icon" type="image/png" href="/build/images/fav.png" />
+
+  <link rel="stylesheet" href="/build/main.css">
+  <script src="/build/main.js"></script>
+</head>
+<body>
+  <main style="
+  background-image: url(/build/images/2e2.png);
+	position:absolute;
+  min-height: 100%;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	z-index:1;
+	background-size:cover;
+  "
+>
+    <div id="minting-dapp"></div>
+    
+  </main>
+
+  <div id="notifications"></div>
+</body>
+
+</html>
